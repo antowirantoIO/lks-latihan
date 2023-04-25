@@ -8,7 +8,7 @@ type Props = {
     formData?: boolean;
 }
 
-const BaseURL = "http://127.0.0.1:8000/api/v1";
+const BaseURL = "https://yukpilih-backend.up.railway.app/api/v1";
 
 export async function getData({url, params, token}: Props) {
     try {  
