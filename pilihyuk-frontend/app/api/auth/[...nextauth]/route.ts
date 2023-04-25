@@ -42,10 +42,8 @@ const handler = NextAuth({
     },
     async session({ session, token, user }) {
       // session.user = token;
-      session.user.access_token = token.access_token;
-      session.user.token_type = token.token_type;
-      session.user.user.id = token?.user;
-      return session;
+      // return session;
+      return { ...session, ...token, ...user };
     },
   },
 
@@ -53,6 +51,7 @@ const handler = NextAuth({
     signIn: "/auth/login",
   },
   secret: "A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z",
+
 });
 
 export { handler as GET, handler as POST };

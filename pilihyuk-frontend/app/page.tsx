@@ -16,7 +16,7 @@ export default function Home() {
       url: "auth/logout",
       data: {},
       formData: false,
-      token: session?.user?.access_token,
+      token: session?.access_token,
     });
     localStorage.clear();
     signOut();
@@ -38,7 +38,7 @@ export default function Home() {
             </span>
           </a>
           <div className="flex md:order-2">
-            {session?.user.user.name ? (
+            {session?.user.name ? (
               <>
                 <div className="flex gap-3">
                   <NextLink href="/dashboard">
@@ -46,11 +46,9 @@ export default function Home() {
                       Dashboard
                     </div>
                   </NextLink>
-                  <NextLink href="/dashboard" onClick={handleLogout}>
-                    <div className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-slate-800 border border-transparent rounded-md shadow-sm hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900">
+                    <div role="button" onClick={handleLogout} className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-slate-800 border border-transparent rounded-md shadow-sm hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900">
                       Logout
                     </div>
-                  </NextLink>
                 </div>
               </>
             ) : (
