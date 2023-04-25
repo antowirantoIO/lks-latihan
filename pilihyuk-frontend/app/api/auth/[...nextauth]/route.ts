@@ -24,7 +24,7 @@ const handler = NextAuth({
       async authorize(credentials, req) {
         try {
           const res = await axios.post(
-            "http://127.0.0.1:8000/api/v1/auth/login",
+            "https://yukpilih-backend.up.railway.app/api/v1/auth/login",
             credentials
           );
           return Promise.resolve(res.data);
