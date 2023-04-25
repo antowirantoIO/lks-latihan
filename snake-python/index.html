@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/script.js" defer></script>
+    <!-- <script src="assets/game.js"></script> -->
+  </head>
+  <body>
+    <div class="container wrap-landing">
+      <h1>🐍</h1>
+      <h2>How To Play?</h2>
+      <div class="instruction">
+        <p>Use the arrow keys to move the snake around the board.</p>
+        <p>
+          Try to eat as many apples as you can without hitting the walls or your
+          own tail.
+        </p>
+        <p>Good luck!</p>
+      </div>
+      <input
+        type="text"
+        class="input-name"
+        placeholder="Nama Kamu"
+        name="name"
+        id="name"
+      />
+      <button type="submit" onclick="play()" class="play-button">
+        Main sekarang
+      </button>
+    </div>
+    <div class="wrapper">
+      <div class="game-details">
+        <div>
+          <span class="score">Score: 0</span>
+          <span> - </span>
+          <span class="high-score">High Score: 0</span>
+        </div>
+        <div>
+          <span class="nama">Hallo: </span>
+        </div>
+        <div>
+          <span class="timer">Time: </span>
+        </div>
+      </div>
+      <div class="play-board"></div>
+    </div>
+    <div class="game-over">
+      <h1>Game Over</h1>
+      <div class="score-details">
+        <span class="final-score">Score: 0</span>
+        <span class="high-score final-high-score">High Score: 0</span>
+      </div>
+      <button class="play-again" onclick="location.reload()">Play Again</button>
+    </div>
+  </body>
+</html>
