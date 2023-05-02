@@ -107,7 +107,7 @@ export default function FormLogin(){
                   setLoginData({ ...loginData, password: e.target.value })
                 }
               />
-              {hidePassword == true ? (
+              {hidePassword === true ? (
                 <div
                   role="button"
                   onClick={() => showPassword(false)}
