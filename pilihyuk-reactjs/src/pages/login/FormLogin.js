@@ -30,6 +30,13 @@ export default function FormLogin(){
     
     return (
       <>
+        {
+        error ?? (
+               <div>
+            {error}
+            </div>
+            )
+        }
         <form>
           <div>
             <label
