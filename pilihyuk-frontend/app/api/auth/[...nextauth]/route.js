@@ -4,7 +4,7 @@ import axios from "axios";
 
 const handler = NextAuth({
   session: {
-    strategy: "jwt",
+    jwt: true,
     maxAge: 24 * 60 * 60, // 1 days
   },
   providers: [
@@ -24,11 +24,11 @@ const handler = NextAuth({
       async authorize(credentials, req) {
         try {
           const res = await axios.post(
-            "https://yukpilih-backend.up.railway.app/api/v1/auth/login",
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
             credentials
           );
           return Promise.resolve(res.data);
-        } catch (e: any) {
+        } catch (e) {
           const msg = e.response.data.message;
           throw new Error(msg);
         }
@@ -41,17 +41,15 @@ const handler = NextAuth({
       return { ...token, ...user };
     },
     async session({ session, token, user }) {
-      // session.user = token;
-      // return session;
-      return { ...session, ...token, ...user };
+      session.user = token;
+      return session;
     },
   },
 
   pages: {
-    signIn: "/auth/login",
+    signIn: "/",
   },
-  secret: "A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z",
-
+  secret: process.env.NEXT_JWT_SECRET,
 });
 
 export { handler as GET, handler as POST };
