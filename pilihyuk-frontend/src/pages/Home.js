@@ -222,9 +222,9 @@ export default function Home() {
                       </div>
                       <div className="flex flex-wrap -mx-2">
                         <div className="w-full px-2 mb-2 md:w-1/2 md:mb-0">
-                          <a
+                          <Link
                             className="flex justify-center gap-2 py-2 text-sm text-white align-baseline transition duration-200 bg-indigo-500 rounded hover:bg-indigo-600"
-                            href="/"
+                            to={`/polling/${polling.id}`}
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -263,7 +263,7 @@ export default function Home() {
                             >
                               Lakukan Polling
                             </div>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
