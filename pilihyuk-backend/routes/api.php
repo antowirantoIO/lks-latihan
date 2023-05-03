@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,18 @@ Route::prefix('v1')->group(function () {
         ]);
         Route::post('logout', [
             AuthController::class, 'logout'
+        ]);
+    });
+
+    Route::prefix('poll')->group(function() {
+        Route::post('/', [
+            PollController::class, 'store'
+        ]);
+        Route::get('/', [
+            PollController::class, 'index'
+        ]);
+        Route::get('/{poll}', [
+            PollController::class, 'show'
         ]);
     });
 });
