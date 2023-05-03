@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = "https://yukpilih-backend.up.railway.app/api/v1";
 const ACCESS_TOKEN = localStorage.getItem("access_token");
 
-export async function getData(url, params) { try {
+export async function getData(url, params) {
+  try {
     return await axios.get(`${API_URL}/${url}`, {
       params,
       headers: {
