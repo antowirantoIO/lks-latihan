@@ -1,9 +1,25 @@
 import React, {useState, useEffect} from 'react'
-import { getData } from '../../hooks/fetch'
+import { getData, postData } from '../../hooks/fetch'
 
 export default function Show() {
     const [poll, setPoll] = useState({})
     const [choiceActive, setChoiceActive] = useState(null)
+
+    const handleVote = () => {
+        const param = window.location.pathname.split('/')[2]
+        
+        postData(`poll/${param}/vote/${choiceActive}`).then((response) => {
+            if(response?.data?.status) {
+              alert('Berhasil Vote')
+              window.location.reload()
+            }
+            
+            if(response?.response?.data.status === false){
+              alert(response.response.data.message)
+            }
+            
+        })
+    }
 
     useEffect(() => {
         const param = window.location.pathname.split('/')[2]
@@ -70,6 +86,7 @@ export default function Show() {
             </div>
             <button
               type="button"
+              onClick={handleVote}
               className="mt-10 transition duration-200 bg-blue-700 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-blue-50 text-white font-medium  px-5 py-[0.6rem] rounded-lg w-full flex items-center text-sm justify-center sm:w-auto "
             >
               {" "}
@@ -81,9 +98,9 @@ export default function Show() {
               <>
                 <div
                   key={index}
-                  onClick={() => setChoiceActive(index)}
+                  onClick={() => setChoiceActive(choice.id)}
                   className={`${
-                    choiceActive === index
+                    choiceActive === choice.id
                       ? "bg-sky-900 bg-opacity-75 text-white  ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300"
                       : "bg-white"
                   } relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`}
@@ -93,7 +110,7 @@ export default function Show() {
                       <div className="text-sm">
                         <p
                           className={`font-medium ${
-                            choiceActive !== index
+                            choiceActive !== choice.id
                               ? "text-gray-900"
                               : "text-white"
                           }`}
@@ -102,7 +119,7 @@ export default function Show() {
                         </p>
                       </div>
                     </div>
-                    {choiceActive === index && (
+                    {choiceActive === choice.id && (
                       <div className="shrink-0 text-white">
                         <CheckIcon className="h-6 w-6" />
                       </div>

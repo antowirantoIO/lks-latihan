@@ -31,7 +31,7 @@
 
 	<?php covid19_indonesia_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content text-muted">
 		<?php
 		the_content(
 			sprintf(
@@ -57,7 +57,8 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer d-flex gap-3">
 		<?php covid19_indonesia_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+

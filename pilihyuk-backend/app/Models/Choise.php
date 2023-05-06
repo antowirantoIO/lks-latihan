@@ -17,7 +17,7 @@ class Choise extends Model
         return $this->hasOne(Poll::class);
     }
 
-    public function vote(){
-        return $this->hasOne(Vote::class);
+    public function votes(){
+        return $this->hasMany(Vote::class);
     }
 }

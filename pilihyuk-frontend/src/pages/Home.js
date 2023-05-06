@@ -138,7 +138,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="container px-4 mx-auto">
+          <div className="container px-4 mx-auto h-full">
             <div className="flex items-stretch -mx-4">
               {pollings.map((polling, index) => (
                 <div className="w-full p-4 lg:w-2/6">

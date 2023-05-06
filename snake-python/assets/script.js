@@ -8,7 +8,7 @@ let gameOver = false;
 let foodX, foodY;
 let snakeX = 5,
   snakeY = 5;
-let velocityX = 0,
+let velocityX = 1,
   velocityY = 0;
 let snakeBody = [];
 let setIntervalId;
@@ -107,9 +107,9 @@ function play() {
   } else {
     name = nameElement.value;
     updateFoodPosition();
-    setIntervalId = setInterval(initGame, 100);
+    setIntervalId = setInterval(initGame, 1000/4);
     document.querySelector(".wrap-landing").style.display = "none";
-    document.querySelector(".wrapper").style.display = "block";
+    document.querySelector(".wrapper").style.display = "flex";
     document.addEventListener("keyup", changeDirection);
   }
 }

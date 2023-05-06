@@ -142,8 +142,7 @@ function covid19_indonesia_scripts() {
 	wp_style_add_data( 'covid19_indonesia-style', 'rtl', 'replace' );
 
 	wp_enqueue_style('bootstrap-style', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css', array(), _S_VERSION);
-
-	wp_enqueue_script('bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(), _S_VERSION);
+	wp_enqueue_script('bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array("jquery"), _S_VERSION);
 
 	wp_enqueue_script( 'covid19_indonesia-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -179,4 +178,10 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+function my_excerpt_length($length){ 
+	return 20; 
+} 
+
+add_filter('excerpt_length', 'my_excerpt_length');
 

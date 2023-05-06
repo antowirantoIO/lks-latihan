@@ -45,5 +45,11 @@ Route::prefix('v1')->group(function () {
         Route::get('/{poll}', [
             PollController::class, 'show'
         ]);
+        Route::post('/{poll}/vote/{choise}', [
+            PollController::class, 'vote'
+        ]);
+        Route::delete('/{poll}', [
+            PollController::class, 'destroy'
+        ]);
     });
 });

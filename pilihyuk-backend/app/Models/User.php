@@ -65,6 +65,6 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function division(){
-        return $this->hasOne(Division::class);
+        return $this->hasOne(Division::class, 'id', 'division_id');
     }
 }
