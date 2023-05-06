@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom"
 
 import Layout from "./components/Layout"
 
+import Homepage from "./features/homepage/Index"
+
 import Login from "./features/auth/Login"
 import ProtectAuth from "./features/auth/ProtectAuth"
 
@@ -11,7 +13,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<h1>Home</h1>} />
+        <Route index element={<Homepage />} />
         <Route path="login" element={<Login />} />
 
         <Route element={<ProtectAuth />}>
