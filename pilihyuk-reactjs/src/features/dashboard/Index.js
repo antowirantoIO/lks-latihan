@@ -9,6 +9,7 @@ const Index = () => {
     <>
     <h1>Welcomr {JSON.stringify(user)}</h1>
     <Link to="/">Home</Link>
+    <Link to="/polls">Polls</Link>
     </>
   )
 }

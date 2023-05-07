@@ -13,7 +13,7 @@ const Login = () => {
     username: "",
     password: "",
   })
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState(null)
 
   const [login, { isLoading }] = useLoginMutation()
 
@@ -30,12 +30,19 @@ const Login = () => {
       setCredential({})
       navigate("/dashboard")
     } catch (error) {
-      setErrors(error.response?.message)
+      setErrors(error.data?.message)
     }
   }
 
   return (
     <div>
+      {
+        errors && (
+          <>
+            {JSON.stringify(errors)}
+          </>
+        )
+      }
       <form onSubmit={handleSubmit}>
         <input
           type="text"

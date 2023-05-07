@@ -9,6 +9,8 @@ import ProtectAuth from "./features/auth/ProtectAuth"
 
 import Dashboard from "./features/dashboard/Index"
 
+import ListAllPolls from "./features/poll/ListAllPolls"
+
 const App = () => {
   return (
     <Routes>
@@ -18,6 +20,7 @@ const App = () => {
 
         <Route element={<ProtectAuth />}>
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="polls" element={<ListAllPolls />} />
         </Route>
       </Route>
     </Routes>
