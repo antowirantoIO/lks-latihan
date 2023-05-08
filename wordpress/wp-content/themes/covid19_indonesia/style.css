@@ -1050,3 +1050,41 @@ h6.wp-block-post-title {
   color: #fff !important;
   padding: 0.5rem 1.5rem !important;
 }
+
+.nav-previous{
+  float: left;
+  font-size: 1rem;
+  color: #2D2D2D;
+}
+
+.nav-previous a{
+  color: inherit;
+  font-weight: 500;
+}
+
+.nav-previous a .nav-subtitle{
+  color: #8a8a8a;
+}
+
+.nav-previous a:hover{
+  color: #0968e5;
+}
+
+.nav-next{
+  float: right;
+  font-size: 1rem;
+  color: #2D2D2D;
+}
+
+.nav-next a{
+  color: inherit;
+  font-weight: 500;
+}
+
+.nav-next a .nav-subtitle{
+  color: #8a8a8a;
+}
+
+.nav-next a:hover{
+  color: #0968e5;
+}

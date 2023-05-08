@@ -3,7 +3,7 @@
 sudo service mysql start
 
 cd wordpress
-php -S localhost:8002 &
+sudo php -S localhost:8002 &
 cd ..
 
 cd pilihyuk-backend

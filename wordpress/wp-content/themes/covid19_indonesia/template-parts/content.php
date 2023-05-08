@@ -31,7 +31,7 @@
 
 	<?php covid19_indonesia_post_thumbnail(); ?>
 
-	<div class="entry-content text-muted">
+	<div class="entry-content">
 		<?php
 		the_content(
 			sprintf(
